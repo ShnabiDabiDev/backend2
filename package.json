@@ -1,0 +1,29 @@
+{
+  "name": "throw",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "itsme",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "better-sqlite3": "^12.11.1",
+    "connect-mongo": "^6.0.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "currency-converter-lt": "^2.0.1",
+    "dotenv": "^17.4.2",
+    "express-session": "^1.19.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongodb": "^7.5.0",
+    "mongoose": "^9.7.4",
+    "multer": "^2.2.0",
+    "pg": "^8.22.0",
+    "puppeteer": "^25.5.0",
+    "socket.io": "^4.8.3"
+  }
+}
