@@ -6,6 +6,12 @@ const path = require('path')
 
 app.use(express.json())
 
+app.use(cors({
+  origin: "https://design-30f.pages.dev",
+  methods: ["GET", "POST"],
+  credentials: true
+}));
+
 app.listen(3000, () => {
     console.log('listen and repeat' + 3000)
 })
