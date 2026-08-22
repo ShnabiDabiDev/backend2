@@ -8,6 +8,6 @@ app.listen(3000, () => {
     console.log('listen and repeat' + 3000)
 })
 
-app.get('/', (req, res) => {
-    res.send('zxc2')
-})
+app.get("/", (req, res) => {
+  res.redirect("https://design-30f.pages.dev/profile");
+});
