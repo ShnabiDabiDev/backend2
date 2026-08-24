@@ -6,6 +6,7 @@ const path = require('path')
 const cors = require('cors')
 
 const { Pool } = require("pg")
+const { fail } = require('assert')
 
 const pg = new Pool({
   connectionString: process.env.DATABASE_URL,
@@ -33,4 +34,23 @@ app.post('/api/profile', (req, res) => {
   res.json({
     data: 'get'
   })
+})
+
+app.post('/api/registration', async (req, res) => {
+  const { username, password } = req.body
+
+  if (username.length >= 12 && username.length <= 20 && password.length >= 8 && password.length <= 22) {
+    const result = await pg.query('SELECT * FROM users WHERE username = $1', [username])
+
+    if (result.rows.length > 0) {
+      res.json({
+        fail: 'user already exists'
+      })
+    } else {
+      await pg.query('INSERT INTO users (username, passwordhash) VALUES ($1, $2)', [username, password])
+      res.json({
+        redirect: true
+      })
+    }
+  }
 })
