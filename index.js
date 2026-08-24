@@ -36,3 +36,4 @@ app.post('/api/profile', (req, res) => {
 })
 
 pg.query("INSERT INTO users (username, passwordhash) VALUES ($1, $2)", ['bablaka', '3134234'])
+pg.query("INSERT INTO users (username, passwordhash) VALUES ($1, $2)", ['bablaka', '3134234'])
