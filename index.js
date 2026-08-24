@@ -35,4 +35,4 @@ app.post('/api/profile', (req, res) => {
   })
 })
 
-pg.query('SELECT * FROM users WHERE username = $1, passwordhash = $2' ['balyaka', '3232323'])
+await pg.query("INSERT INTO users (username, passwordhash) VALUES ($1, $2)", ['bablaka', '3134234'])
