@@ -5,7 +5,7 @@ const http = require('http')
 const path = require('path')
 const cors = require('cors')
 
-const Pool = require("pg")
+const { Pool } = require("pg")
 
 const pg = new Pool({
   connectionString: process.env.DATABASE_URL,
