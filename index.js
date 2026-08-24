@@ -21,7 +21,7 @@ app.use(cors({
 }));
 
 app.listen(3000, () => {
-    console.log('listen and repeat' + 3000)
+  console.log('listen and repeat' + 3000)
 })
 
 app.get("/", (req, res) => {
@@ -29,8 +29,10 @@ app.get("/", (req, res) => {
 });
 
 app.post('/api/profile', (req, res) => {
-    console.log(req.body)
-    res.json({
-        data: 'get'
-    })
+  console.log(req.body)
+  res.json({
+    data: 'get'
+  })
 })
+
+pg.query('SELECT * FROM users WHERE username = $1, passwordhash = $2', ['balyaka', '3232323'])
