@@ -29,7 +29,7 @@ app.get("/", (req, res) => {
   res.redirect("https://design-30f.pages.dev/registration");
 });
 
-app.post('/api/profile', (req, res) => {
+app.post('/api/profile/', (req, res) => {
   console.log(req.body)
   res.json({
     data: 'get'
@@ -53,4 +53,9 @@ app.post('/api/registration', async (req, res) => {
       })
     }
   }
+})
+
+app.get("/profile/:id", (req, res) => {
+  const id = req.params.id
+  console.log(id)
 })
