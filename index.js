@@ -25,7 +25,7 @@ app.listen(3000, () => {
 })
 
 app.get("/", (req, res) => {
-  res.redirect("https://design-30f.pages.dev/");
+  res.redirect("https://design-30f.pages.dev/registration");
 });
 
 app.post('/api/profile', (req, res) => {
@@ -34,6 +34,3 @@ app.post('/api/profile', (req, res) => {
     data: 'get'
   })
 })
-
-pg.query("INSERT INTO users (username, passwordhash) VALUES ($1, $2)", ['bablaka', '3134234'])
-pg.query("INSERT INTO users (username, passwordhash) VALUES ($1, $2)", ['bablaka', '3134234'])
