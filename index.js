@@ -48,14 +48,20 @@ app.post('/api/registration', async (req, res) => {
       })
     } else {
       await pg.query('INSERT INTO users (username, passwordhash) VALUES ($1, $2)', [username, password])
+      const getid = await pg.query('SELECT * FROM users WHERE username = $1', [username])
+
       res.json({
+        id: getid.rows[0].id,
         redirect: true
       })
     }
   }
 })
 
-app.get("/profile/:id", (req, res) => {
+app.get("/profile/:id", async (req, res) => {
   const id = req.params.id
-  console.log(id)
+  const result = await pool.query("SELECT * FROM users WHERE id = $1", [id]);
+  res.json({
+    result: result.rows[0]
+  })
 })
