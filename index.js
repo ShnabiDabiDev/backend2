@@ -7,7 +7,7 @@ const cors = require('cors')
 
 const { Pool } = require("pg")
 const { fail } = require('assert')
-const { connect } = require('socket.io')
+const { Connect } = require('socket.io')
 const server = http.createServer(app)
 
 const pg = new Pool({
@@ -23,7 +23,7 @@ app.use(cors({
   credentials: true
 }));
 
-const io = new connect (server, {
+const io = new Connect (server, {
   cors: {
     origin: 'https://design-30f.pages.dev',
     methods: ["GET", "POST"]
@@ -31,7 +31,6 @@ const io = new connect (server, {
 })
 
 server.listen(process.env.PORT)
-app.listen(process.env.PORT, () => {})
 
 app.get("/", (req, res) => {
   res.redirect("https://design-30f.pages.dev/registration");
