@@ -7,7 +7,7 @@ const cors = require('cors')
 
 const { Pool } = require("pg")
 const { fail } = require('assert')
-const connect = require('socket.io')
+const { connect } = require('socket.io')
 const server = http.createServer(app)
 
 const pg = new Pool({
@@ -23,7 +23,7 @@ app.use(cors({
   credentials: true
 }));
 
-const io = (server, {
+const io = new connect (server, {
   cors: {
     origin: 'https://design-30f.pages.dev',
     methods: ["GET", "POST"]
