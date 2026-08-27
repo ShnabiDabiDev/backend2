@@ -25,7 +25,7 @@ app.use(cors({
 
 const io = new Server (server, {
   cors: {
-    origin: 'https://design-30f.pages.dev',
+    origin: 'backend2-production-046d.up.railway.app',
     methods: ["GET", "POST"]
   }
 })
@@ -75,5 +75,5 @@ app.post('/api/profile/getid', async (req, res) => {
 })
 
 io.on('connection', (socket) => {
-  
+  console.log('connect')
 })
