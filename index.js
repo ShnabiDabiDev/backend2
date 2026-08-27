@@ -31,7 +31,7 @@ const io = (server, {
 })
 
 server.listen(process.env.PORT)
-app.listen(3000, () => {})
+app.listen(process.env.PORT, () => {})
 
 app.get("/", (req, res) => {
   res.redirect("https://design-30f.pages.dev/registration");
