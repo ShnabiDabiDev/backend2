@@ -7,6 +7,8 @@ const cors = require('cors')
 
 const { Pool } = require("pg")
 const { fail } = require('assert')
+const connect = require('socket.io')
+const server = http.createServer(app)
 
 const pg = new Pool({
   connectionString: process.env.DATABASE_URL,
@@ -21,21 +23,19 @@ app.use(cors({
   credentials: true
 }));
 
-app.listen(3000, () => {
-  console.log('listen and repeat' + 3000)
+const io = (server, {
+  cors: {
+    origin: 'https://design-30f.pages.dev',
+    methods: ["GET", "POST"]
+  }
 })
+
+server.listen(process.env.PORT)
+app.listen(3000, () => {})
 
 app.get("/", (req, res) => {
   res.redirect("https://design-30f.pages.dev/registration");
 });
-
-// app.get("/profile/:id", async (req, res) => {
-//   const id = req.params.id
-//   const result = await pool.query("SELECT * FROM users WHERE id = $1", [id]);
-//   res.json({
-//     result: result.rows[0]
-//   })
-// })
 
 app.post('/api/profile/', (req, res) => {
   console.log(req.body)
@@ -73,4 +73,8 @@ app.post('/api/profile/getid', async (req, res) => {
   res.json({
     dbres: DB_RES.rows[0]
   })
+})
+
+io.on('connection', (socket) => {
+  console.log('hiiii')
 })
