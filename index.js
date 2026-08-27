@@ -75,5 +75,7 @@ app.post('/api/profile/getid', async (req, res) => {
 })
 
 io.on('connection', (socket) => {
-  console.log('connect')
+  socket.emit("hiclient", {
+    data: 'hi'
+  })
 })
