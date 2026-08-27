@@ -25,7 +25,7 @@ app.use(cors({
 
 const io = new Server (server, {
   cors: {
-    origin: 'backend2-production-046d.up.railway.app',
+    origin: 'https://design-30f.pages.dev',
     methods: ["GET", "POST"]
   }
 })
